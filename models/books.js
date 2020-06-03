@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // Create schema variable
 const Schema = mongoose.Schema;
 
-const booksSchema = new Schema({
+const bookSchema = new Schema({
 	title: {
 		type: String,
 		trim: true,
@@ -25,6 +25,6 @@ const booksSchema = new Schema({
 	}
 });
 
-const Books = mongoose.model('Books', booksSchema);
+const Book = mongoose.model('Books', bookSchema);
 
-module.exports = Books;
+module.exports = Book;
