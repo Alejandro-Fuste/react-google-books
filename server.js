@@ -5,7 +5,7 @@ const path = require('path');
 const logger = require('morgan');
 
 // Requiring .dotenv file
-require('dotenv').config();
+// require('dotenv').config();
 
 //Setting up port
 const PORT = process.env.PORT || 3001;
@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // API Routes
-require('./routes/api-routes.js')(app);
+// require('./routes/api-routes.js')(app);
 
 // Send every request to the React app
 // Define any API routes before this runs
