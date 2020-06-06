@@ -1,0 +1,12 @@
+.navLinks {
+	margin-right: 10px;
+	text-decoration: none;
+	font-size: 1.5rem;
+	color: #969797;
+	margin-top: 6px;
+}
+
+.navLinks,
+.navLogo {
+	font-family: 'Mukta', sans-serif;
+}
