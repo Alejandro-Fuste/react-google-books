@@ -1,0 +1,9 @@
+.jumboBg {
+	background-image: url('../../assets/jumbotronPic.jpg');
+	position: relative;
+	opacity: .75;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 40vh;
+}
