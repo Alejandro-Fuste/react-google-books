@@ -3,6 +3,7 @@
 // Dependencies
 const path = require('path');
 const db = require('../models');
+const googleBooksAPI = require('../libs/googleBooksAPI');
 
 module.exports = function(app) {
 	// Each of the below routes will do a different CRUD operation.
@@ -40,6 +41,18 @@ module.exports = function(app) {
 			})
 			.catch((err) => {
 				res.status(422).json(err);
+			});
+	});
+
+	// Get books from Google Books API
+	app.get('/api/book', (req, res) => {
+		googleBooksAPI
+			.getBook(req.query)
+			.then(({ data }) => {
+				return res.json(data);
+			})
+			.catch((err) => {
+				throw err;
 			});
 	});
 };
