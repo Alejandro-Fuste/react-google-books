@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import API from '../../utils/API';
 import './style.css';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
@@ -11,22 +12,39 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const SearchForm = () => {
+	const searchRef = useRef();
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		API.getBook({
+			search: searchRef.current.value
+		})
+			.then((res) => {
+				console.log(res.data.items);
+			})
+			.catch((err) => console.log(err));
+
+		searchRef.current.value = '';
+	};
+
 	return (
-		<Container>
+		<Container fluid>
 			<Row>
 				<Col>
-					<Form>
+					<Form onSubmit={handleSubmit}>
 						<InputGroup className="mb-3">
 							<FormControl
 								placeholder="Enter Book Title"
 								aria-label="BookTitle"
 								aria-describedby="basic-addon2"
+								ref={searchRef}
 							/>
 							<InputGroup.Append>
 								<Button
 									variant="outline-secondary"
 									className="inputBtn"
 									style={{ backgroundColor: '#969797', color: 'white' }}
+									type="submit"
 								>
 									<FontAwesomeIcon icon={faSearch} style={{ marginRight: 5, color: 'white' }} />Search
 								</Button>
