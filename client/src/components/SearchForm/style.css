@@ -26,6 +26,7 @@ h3 {
 
 .pic {
 	float: left;
+	margin: 1vh 1vw;
 }
 
 p {
