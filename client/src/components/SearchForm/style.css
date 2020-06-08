@@ -1,3 +1,33 @@
-.col {
+.searchCol {
 	margin: 0 200px;
+}
+
+.resultsCol,
+.singleResult {
+	border: 1px solid #e0dede;
+	border-radius: 3px;
+	padding: 10px;
+	background-color: #f7f7f7;
+}
+
+.singleResult {
+	background-color: white;
+}
+
+h3 {
+	font-family: 'Mukta', sans-serif;
+	color: #969797;
+	/* margin: 10px; */
+}
+
+.pic {
+	float: left;
+}
+
+p {
+	font-size: 1rem;
+	line-height: 180%;
+	font-family: 'Lato', 'Open Sans';
+	padding: 0vh 10vw 2vh 10vw;
+	text-align: justify;
 }

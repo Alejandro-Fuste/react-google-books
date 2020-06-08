@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import API from '../../utils/API';
 import './style.css';
 import Form from 'react-bootstrap/Form';
@@ -12,31 +12,51 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const SearchForm = () => {
+	const [ results, setResults ] = useState([]);
+	const [ initialQuery ] = useState({
+		query: 'Harry Potter'
+	});
 	const searchRef = useRef();
+
+	const initialSearch = () => {
+		API.getBook(initialQuery).then((res) => {
+			let d = res.data.items;
+			setResults(d);
+			console.log(`Initial res: ${d}`);
+		});
+	};
+
+	useEffect(() => {
+		initialSearch();
+	}, []);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		API.getBook({
-			search: searchRef.current.value
+			query: searchRef.current.value
 		})
 			.then((res) => {
-				console.log(res.data.items);
+				let d = res.data.items;
+				setResults(d);
+				// console.log(res.data.items);
 			})
 			.catch((err) => console.log(err));
-
+		console.log(searchRef.current.value);
+		console.log(results);
 		searchRef.current.value = '';
 	};
 
 	return (
 		<Container fluid>
 			<Row>
-				<Col>
+				<Col className="searchCol">
 					<Form onSubmit={handleSubmit}>
 						<InputGroup className="mb-3">
 							<FormControl
 								placeholder="Enter Book Title"
 								aria-label="BookTitle"
 								aria-describedby="basic-addon2"
+								type="text"
 								ref={searchRef}
 							/>
 							<InputGroup.Append>
