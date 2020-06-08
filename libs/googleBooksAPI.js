@@ -4,11 +4,11 @@ const apiKey = process.env.API_KEY;
 
 module.exports = {
 	getBook: (query) => {
-		const { searchTerm = 'Harry Potter' } = query;
+		// const { searchTerm = 'Harry Potter' } = query;
 
-		return axios.get(`${BASE_URI}${searchTerm}+intitle&key=${apiKey}`, {
+		return axios.get(`${BASE_URI}${query}+intitle:${query}&key=${apiKey}`, {
 			params: {
-				searchTerm
+				query
 			}
 		});
 	}
