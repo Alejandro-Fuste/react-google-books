@@ -24,8 +24,8 @@ const Saved = (props) => {
 						<h3>Saved Books</h3>
 					</div>
 
-					<div className="singleResult">
-						<div>
+					<ul className="singleResult">
+						<li>
 							<Button style={styles.button}>View</Button>
 							<Button style={styles.button}>Delete</Button>
 							<h5>Title:</h5>
@@ -40,8 +40,8 @@ const Saved = (props) => {
 								Donec vulputate suscipit metus, ut ultrices dolor pellentesque quis. Cras id fermentum
 								odio.{' '}
 							</p>
-						</div>
-					</div>
+						</li>
+					</ul>
 				</Col>
 			</Row>
 		</Container>

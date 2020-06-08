@@ -31,9 +31,8 @@ const Search = (props) => {
 					<div>
 						<h3>Search Results</h3>
 					</div>
-
-					<div className="singleResult">
-						<div>
+					<ul className="singleResult">
+						<li>
 							<Button style={styles.button}>View</Button>
 							<Button style={styles.button}>Save</Button>
 							<h5>Title:</h5>
@@ -48,8 +47,8 @@ const Search = (props) => {
 								Donec vulputate suscipit metus, ut ultrices dolor pellentesque quis. Cras id fermentum
 								odio.{' '}
 							</p>
-						</div>
-					</div>
+						</li>
+					</ul>
 				</Col>
 			</Row>
 		</Container>
@@ -57,3 +56,9 @@ const Search = (props) => {
 };
 
 export default Search;
+
+// console.log(results[0]['volumeInfo']['authors']);
+// console.log(results[0]['volumeInfo']['title']);
+// console.log(results[0]['volumeInfo']['previewLink']);
+// console.log(results[0]['volumeInfo']['imageLinks']['thumbnail']);
+// console.log(results[0]['volumeInfo']['description']);
