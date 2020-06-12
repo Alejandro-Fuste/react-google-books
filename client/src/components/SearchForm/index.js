@@ -48,6 +48,21 @@ const SearchForm = () => {
 		searchRef.current.value = '';
 	};
 
+	const saveBook = (e) => {
+		e.preventDefault();
+		API.saveBook({
+			title: '',
+			authors: [],
+			image: '',
+			link: '',
+			description: ''
+		})
+			.then((result) => {
+				// get result and save it to a saved books state
+			})
+			.catch((err) => console.log(err));
+	};
+
 	return (
 		<Container fluid>
 			<Row>
@@ -67,6 +82,7 @@ const SearchForm = () => {
 									className="inputBtn"
 									style={{ backgroundColor: '#969797', color: 'white' }}
 									type="submit"
+									onClick={saveBook}
 								>
 									<FontAwesomeIcon icon={faSearch} style={{ marginRight: 5, color: 'white' }} />Search
 								</Button>
