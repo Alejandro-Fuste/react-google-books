@@ -30,7 +30,7 @@ const Saved = (props) => {
 							<Button style={styles.button}>Delete</Button>
 							<h5>Title:</h5>
 							<h6>Author:</h6>
-							<img className="pic" src={''} alt="Result picture" />
+							<img className="pic" src={''} alt="Saved Thumbnail" />
 							<p>
 								Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent laoreet
 								augue non leo luctus suscipit. Nulla iaculis ultrices condimentum. Cras porta vestibulum

@@ -32,22 +32,22 @@ const Search = (props) => {
 						<h3>Search Results</h3>
 					</div>
 					<ul className="singleResult">
-						<li>
-							<Button style={styles.button}>View</Button>
-							<Button style={styles.button}>Save</Button>
-							<h5>Title:</h5>
-							<h6>Author:</h6>
-							<img className="pic" src={''} alt="Result picture" />
-							<p>
-								Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent laoreet
-								augue non leo luctus suscipit. Nulla iaculis ultrices condimentum. Cras porta vestibulum
-								dolor a imperdiet. Sed quis mauris diam. Donec dapibus, diam sed faucibus consequat,
-								felis quam elementum urna, non commodo diam lorem sollicitudin elit. Aliquam consequat,
-								risus eget suscipit sagittis, diam quam aliquam odio, a tincidunt nibh enim quis turpis.
-								Donec vulputate suscipit metus, ut ultrices dolor pellentesque quis. Cras id fermentum
-								odio.{' '}
-							</p>
-						</li>
+						{results.map((result, index) => (
+							<li>
+								<Button style={styles.button} href={results[index]['volumeInfo']['previewLink']}>
+									View
+								</Button>
+								<Button style={styles.button}>Save</Button>
+								<h5>Title: {results[index]['volumeInfo']['title']}</h5>
+								<h6>Author: {results[index]['volumeInfo']['authors']}</h6>
+								<img
+									className="pic"
+									src={results[index]['volumeInfo']['imageLinks']['thumbnail']}
+									alt="Book Thumbnail"
+								/>
+								<p>{results[index]['volumeInfo']['description']}</p>
+							</li>
+						))}
 					</ul>
 				</Col>
 			</Row>

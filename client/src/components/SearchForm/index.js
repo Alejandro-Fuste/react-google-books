@@ -22,7 +22,8 @@ const SearchForm = () => {
 		API.getBook(initialQuery).then((res) => {
 			let d = res.data.items;
 			setResults(d);
-			console.log(`Initial res: ${d}`);
+			console.log('Initial res:');
+			console.log(d);
 		});
 	};
 
@@ -38,7 +39,8 @@ const SearchForm = () => {
 			.then((res) => {
 				let d = res.data.items;
 				setResults(d);
-				// console.log(res.data.items);
+				console.log('results from search:');
+				console.log(res.data.items);
 			})
 			.catch((err) => console.log(err));
 		console.log(searchRef.current.value);

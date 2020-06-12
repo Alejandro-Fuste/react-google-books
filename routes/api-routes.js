@@ -46,6 +46,8 @@ module.exports = function(app) {
 
 	// Get books from Google Books API
 	app.get('/api/book', (req, res) => {
+		console.log('req.query:');
+		console.log(req.query);
 		googleBooksAPI
 			.getBook(req.query)
 			.then(({ data }) => {
