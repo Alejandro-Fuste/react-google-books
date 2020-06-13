@@ -21,7 +21,7 @@ const bookSchema = new Schema({
 		type: String,
 		trim: true
 	},
-	link: {
+	previewLink: {
 		type: String,
 		trim: true
 	},
