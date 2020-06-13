@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useContext } from 'react';
-import { ADD_SAVED, DELETE_SAVED, VIEW_BOOK, VIEW_RESULTS } from './actions';
+import { ADD_SAVED, DELETE_SAVED, VIEW_BOOK, ADD_RESULTS } from './actions';
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
@@ -27,10 +27,10 @@ const reducer = (state, action) => {
 				loading: false
 			};
 
-		case VIEW_RESULTS:
+		case ADD_RESULTS:
 			return {
 				...state,
-				results: [ action.result, ...state.results ]
+				results: action.result
 			};
 
 		default:
@@ -40,6 +40,7 @@ const reducer = (state, action) => {
 
 const StoreProvider = ({ value = [], ...props }) => {
 	const [ state, dispatch ] = useReducer(reducer, {
+		initialSearchTerm: 'Harry Potter',
 		results: [],
 		saved: []
 	});
