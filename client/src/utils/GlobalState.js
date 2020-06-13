@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useContext } from 'react';
-import { ADD_SAVED, DELETE_SAVED, VIEW_BOOK, ADD_RESULTS } from './actions';
+import { ADD_SAVED, GET_SAVED, DELETE_SAVED, VIEW_BOOK, ADD_RESULTS } from './actions';
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
@@ -10,6 +10,12 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				saved: [ action.save, ...state.saved ]
+			};
+
+		case GET_SAVED:
+			return {
+				...state,
+				saved: action.getSaved
 			};
 
 		// case DELETE_SAVED:
