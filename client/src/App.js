@@ -4,6 +4,7 @@ import Saved from './pages/Saved';
 import Search from './pages/Search';
 import Navigation from './components/Navigation';
 import Jumbo from './components/Jumbo';
+import { StoreProvider } from './utils/GlobalState';
 import './App.css';
 
 class App extends Component {
@@ -11,11 +12,13 @@ class App extends Component {
 		return (
 			<Router>
 				<div>
-					<Navigation />
-					<Jumbo />
-					<Route exact path="/" component={Search} />
-					<Route exact path="/search" component={Search} />
-					<Route exact path="/saved" component={Saved} />
+					<StoreProvider>
+						<Navigation />
+						<Jumbo />
+						<Route exact path="/" component={Search} />
+						<Route exact path="/search" component={Search} />
+						<Route exact path="/saved" component={Saved} />
+					</StoreProvider>
 				</div>
 			</Router>
 		);
