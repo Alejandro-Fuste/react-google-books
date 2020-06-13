@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import SearchForm from '../components/SearchForm';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import API from '../utils/API';
+import { useStoreContext } from '../utils/GlobalState';
+import { GET_SAVED } from '../utils/actions';
 
 const styles = {
 	button: {
@@ -15,7 +17,24 @@ const styles = {
 	}
 };
 
-const Saved = (props) => {
+const Saved = () => {
+	const [ state, dispatch ] = useStoreContext();
+
+	useEffect(() => {
+		API.getSavedBooks()
+			.then((res) => {
+				dispatch({
+					type: GET_SAVED,
+					getSaved: res.data
+				});
+				console.log(`res from getSavedBooks api:`);
+				console.log(res.data);
+				console.log(`saved books from global state:`);
+				console.log(state.saved);
+			})
+			.catch((err) => console.log(err));
+	}, []);
+
 	return (
 		<Container fluid>
 			<Row>
@@ -25,22 +44,28 @@ const Saved = (props) => {
 					</div>
 
 					<ul className="singleResult">
-						<li>
-							<Button style={styles.button}>View</Button>
-							<Button style={styles.button}>Delete</Button>
-							<h5>Title:</h5>
-							<h6>Author:</h6>
-							<img className="pic" src={''} alt="Saved Thumbnail" />
-							<p>
-								Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent laoreet
-								augue non leo luctus suscipit. Nulla iaculis ultrices condimentum. Cras porta vestibulum
-								dolor a imperdiet. Sed quis mauris diam. Donec dapibus, diam sed faucibus consequat,
-								felis quam elementum urna, non commodo diam lorem sollicitudin elit. Aliquam consequat,
-								risus eget suscipit sagittis, diam quam aliquam odio, a tincidunt nibh enim quis turpis.
-								Donec vulputate suscipit metus, ut ultrices dolor pellentesque quis. Cras id fermentum
-								odio.{' '}
-							</p>
-						</li>
+						<React.Fragment>
+							{state.saved ? (
+								state.saved.map((result, index) => (
+									<div>
+										<li key={index}>
+											<Button style={styles.button} href={result['previewLink']}>
+												View
+											</Button>
+											<Button style={styles.button} onClick={''} key={index}>
+												Delete
+											</Button>
+											<h5>Title: {result.title}</h5>
+											<h6>Author: {result['authors']}</h6>
+											<img className="pic" src={result['image']} alt="Book Thumbnail" />
+											<p>{result['description']}</p>
+										</li>
+									</div>
+								))
+							) : (
+								<h3>No Results</h3>
+							)}
+						</React.Fragment>
 					</ul>
 				</Col>
 			</Row>

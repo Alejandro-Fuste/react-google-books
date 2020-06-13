@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import API from '../../utils/API';
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_RESULTS } from '../../utils/actions';
