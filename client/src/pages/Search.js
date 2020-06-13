@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import SearchForm from '../components/SearchForm';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import API from '../utils/API';
+import { useStoreContext } from '../utils/GlobalState';
+import { ADD_RESULTS } from '../utils/actions';
 
 const styles = {
 	button: {
@@ -16,7 +19,34 @@ const styles = {
 };
 
 const Search = (props) => {
-	const [ results, setResults ] = useState([]);
+	const [ state, dispatch ] = useStoreContext();
+
+	useEffect(() => {
+		API.getBook({ query: state.initialSearchTerm }).then((res) => {
+			dispatch({
+				type: ADD_RESULTS,
+				result: res.data.items
+			});
+			console.log(`res.data.items:`);
+			console.log(res.data.items);
+			console.log(state.results);
+		});
+	}, []);
+
+	const saveBook = (e) => {
+		e.preventDefault();
+		API.saveBook({
+			title: '',
+			authors: [],
+			image: '',
+			link: '',
+			description: ''
+		})
+			.then((result) => {
+				// get result and save it to a saved books state
+			})
+			.catch((err) => console.log(err));
+	};
 
 	return (
 		<Container fluid>
@@ -32,22 +62,30 @@ const Search = (props) => {
 						<h3>Search Results</h3>
 					</div>
 					<ul className="singleResult">
-						{results.map((result, index) => (
-							<li>
-								<Button style={styles.button} href={results[index]['volumeInfo']['previewLink']}>
-									View
-								</Button>
-								<Button style={styles.button}>Save</Button>
-								<h5>Title: {results[index]['volumeInfo']['title']}</h5>
-								<h6>Author: {results[index]['volumeInfo']['authors']}</h6>
-								<img
-									className="pic"
-									src={results[index]['volumeInfo']['imageLinks']['thumbnail']}
-									alt="Book Thumbnail"
-								/>
-								<p>{results[index]['volumeInfo']['description']}</p>
-							</li>
-						))}
+						<React.Fragment>
+							{state.results ? (
+								state.results.map((result) => (
+									<li>
+										<Button style={styles.button} href={result['volumeInfo']['previewLink']}>
+											View
+										</Button>
+										<Button style={styles.button} onClick={saveBook}>
+											Save
+										</Button>
+										<h5>Title: {result['volumeInfo']['title']}</h5>
+										<h6>Author: {result['volumeInfo']['authors']}</h6>
+										<img
+											className="pic"
+											src={result['volumeInfo']['imageLinks']['thumbnail']}
+											alt="Book Thumbnail"
+										/>
+										<p>{result['volumeInfo']['description']}</p>
+									</li>
+								))
+							) : (
+								<h3>No Results</h3>
+							)}
+						</React.Fragment>
 					</ul>
 				</Col>
 			</Row>

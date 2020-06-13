@@ -1,5 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import API from '../../utils/API';
+import { useStoreContext } from '../../utils/GlobalState';
+import { ADD_RESULTS } from '../../utils/actions';
 import './style.css';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
@@ -12,55 +14,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const SearchForm = () => {
-	const [ results, setResults ] = useState([]);
-	const [ initialQuery ] = useState({
-		query: 'Harry Potter'
-	});
 	const searchRef = useRef();
 
-	const initialSearch = () => {
-		API.getBook(initialQuery).then((res) => {
-			let d = res.data.items;
-			setResults(d);
-			console.log('Initial res:');
-			console.log(d);
-		});
-	};
-
-	useEffect(() => {
-		initialSearch();
-	}, []);
+	const [ state, dispatch ] = useStoreContext();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
 		API.getBook({
 			query: searchRef.current.value
 		})
 			.then((res) => {
-				let d = res.data.items;
-				setResults(d);
-				console.log('results from search:');
-				console.log(res.data.items);
+				dispatch({
+					type: ADD_RESULTS,
+					result: res.data.items
+				});
 			})
 			.catch((err) => console.log(err));
 		console.log(searchRef.current.value);
-		console.log(results);
+		console.log(state.results);
 		searchRef.current.value = '';
-	};
-
-	const saveBook = (e) => {
-		e.preventDefault();
-		API.saveBook({
-			title: '',
-			authors: [],
-			image: '',
-			link: '',
-			description: ''
-		})
-			.then((result) => {
-				// get result and save it to a saved books state
-			})
-			.catch((err) => console.log(err));
 	};
 
 	return (
@@ -82,7 +55,6 @@ const SearchForm = () => {
 									className="inputBtn"
 									style={{ backgroundColor: '#969797', color: 'white' }}
 									type="submit"
-									onClick={saveBook}
 								>
 									<FontAwesomeIcon icon={faSearch} style={{ marginRight: 5, color: 'white' }} />Search
 								</Button>
