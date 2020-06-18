@@ -6,16 +6,7 @@ import Button from 'react-bootstrap/Button';
 import API from '../utils/API';
 import { useStoreContext } from '../utils/GlobalState';
 import { GET_SAVED } from '../utils/actions';
-
-const styles = {
-	button: {
-		marginRight: 5,
-		backgroundColor: '#969797',
-		color: 'white',
-		float: 'right',
-		borderColor: '#969797'
-	}
-};
+import styles from '../utils/pageStyles';
 
 const Saved = () => {
 	const [ state, dispatch ] = useStoreContext();
@@ -48,17 +39,22 @@ const Saved = () => {
 							{state.saved ? (
 								state.saved.map((result, index) => (
 									<div>
-										<li key={index}>
+										<li key={index} style={styles.li}>
 											<Button style={styles.button} href={result['previewLink']}>
 												View
 											</Button>
 											<Button style={styles.button} onClick={''} key={index}>
 												Delete
 											</Button>
-											<h5>Title: {result.title}</h5>
-											<h6>Author: {result['authors']}</h6>
-											<img className="pic" src={result['image']} alt="Book Thumbnail" />
-											<p>{result['description']}</p>
+											<h5 style={styles.titleAndAuthor}>Title: {result.title}</h5>
+											<h6 style={styles.titleAndAuthor}>Author: {result['authors']}</h6>
+											<img
+												className="pic"
+												src={result['image']}
+												alt="Book Thumbnail"
+												style={styles.img}
+											/>
+											<p style={styles.p}>{result['description']}</p>
 										</li>
 									</div>
 								))

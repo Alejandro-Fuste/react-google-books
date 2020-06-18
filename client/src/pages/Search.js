@@ -7,16 +7,7 @@ import Button from 'react-bootstrap/Button';
 import API from '../utils/API';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_RESULTS } from '../utils/actions';
-
-const styles = {
-	button: {
-		marginRight: 5,
-		backgroundColor: '#969797',
-		color: 'white',
-		float: 'right',
-		borderColor: '#969797'
-	}
-};
+import styles from '../utils/pageStyles';
 
 const Search = (props) => {
 	const [ state, dispatch ] = useStoreContext();
@@ -68,21 +59,26 @@ const Search = (props) => {
 							{state.results ? (
 								state.results.map((result, index) => (
 									<div>
-										<li key={index}>
+										<li key={index} style={styles.li}>
 											<Button style={styles.button} href={result['volumeInfo']['previewLink']}>
 												View
 											</Button>
 											<Button style={styles.button} onClick={saveBook} key={index}>
 												Save
 											</Button>
-											<h5>Title: {result['volumeInfo']['title']}</h5>
-											<h6>Author: {result['volumeInfo']['authors']}</h6>
+											<h5 style={styles.titleAndAuthor}>
+												Title: {result['volumeInfo']['title']}
+											</h5>
+											<h6 style={styles.titleAndAuthor}>
+												Author: {result['volumeInfo']['authors']}
+											</h6>
 											<img
 												className="pic"
 												src={result['volumeInfo']['imageLinks']['thumbnail']}
 												alt="Book Thumbnail"
+												style={styles.img}
 											/>
-											<p>{result['volumeInfo']['description']}</p>
+											<p style={styles.p}>{result['volumeInfo']['description']}</p>
 										</li>
 									</div>
 								))
