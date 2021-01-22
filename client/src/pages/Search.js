@@ -21,7 +21,8 @@ const Search = (props) => {
 				});
 				console.log(`res.data.items:`);
 				console.log(res.data.items);
-				console.log(state.results);
+				console.log(`Thumbnail Image: ${res['data']['items'][0]['volumeInfo']['imageLinks']['thumbnail']}`);
+				console.log(`State: ${state}`);
 			})
 			.catch((err) => console.log(err));
 	}, []);
