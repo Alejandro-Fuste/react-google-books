@@ -19,10 +19,12 @@ const Search = (props) => {
 					type: ADD_RESULTS,
 					result: res.data.items
 				});
-				console.log(`res.data.items:`);
-				console.log(res.data.items);
-				console.log(`Thumbnail Image: ${res['data']['items'][0]['volumeInfo']['imageLinks']['thumbnail']}`);
-				console.log(`State: ${state}`);
+				// console.log(`res.data.items:`);
+				// console.log(res.data.items);
+				// console.log(`Thumbnail Image: ${res['data']['items'][0]['volumeInfo']['imageLinks']['thumbnail']}`);
+				// console.log(`State: ${state}`);
+				console.log('key');
+				console.log(res.data);
 			})
 			.catch((err) => console.log(err));
 	}, []);
@@ -60,11 +62,11 @@ const Search = (props) => {
 							{state.results ? (
 								state.results.map((result, index) => (
 									<div>
-										<li key={index} style={styles.li}>
+										<li key={result.id} style={styles.li}>
 											<Button style={styles.button} href={result['volumeInfo']['previewLink']}>
 												View
 											</Button>
-											<Button style={styles.button} onClick={saveBook} key={index}>
+											<Button style={styles.button} onClick={saveBook}>
 												Save
 											</Button>
 											<h5 style={styles.titleAndAuthor}>
@@ -73,12 +75,12 @@ const Search = (props) => {
 											<h6 style={styles.titleAndAuthor}>
 												Author: {result['volumeInfo']['authors']}
 											</h6>
-											<img
+											{/* <img
 												className="pic"
 												src={result['volumeInfo']['imageLinks']['thumbnail']}
 												alt="Book Thumbnail"
 												style={styles.img}
-											/>
+											/> */}
 											<p style={styles.p}>{result['volumeInfo']['description']}</p>
 										</li>
 									</div>

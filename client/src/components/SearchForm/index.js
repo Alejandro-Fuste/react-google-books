@@ -25,6 +25,8 @@ const SearchForm = () => {
 			query: searchRef.current.value
 		})
 			.then((res) => {
+				console.log(`CL for res from SearchForm:`);
+				console.log(res);
 				dispatch({
 					type: ADD_RESULTS,
 					result: res.data.items
@@ -32,7 +34,7 @@ const SearchForm = () => {
 			})
 			.catch((err) => console.log(err));
 		console.log(searchRef.current.value);
-		console.log(state.results);
+		// console.log(state.results);
 		searchRef.current.value = '';
 	};
 
