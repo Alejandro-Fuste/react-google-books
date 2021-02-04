@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
-import SearchForm from '../components/SearchForm';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import API from '../utils/API';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_RESULTS } from '../utils/actions';
-import styles from '../utils/pageStyles';
+import SearchForm from '../components/SearchForm';
+import API from '../utils/API';
 import NoImage from '../assets/noImageVector.jpg';
+
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import styles from '../utils/pageStyles';
 
 const Search = (props) => {
 	const [ state, dispatch ] = useStoreContext();
