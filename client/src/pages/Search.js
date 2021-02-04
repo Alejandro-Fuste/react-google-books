@@ -79,7 +79,7 @@ const Search = (props) => {
 											<img
 												className="pic"
 												// src={NoImage}
-												src={result['volumeInfo']['imageLinks']['thumbnail']}
+												// src={result['volumeInfo']['imageLinks']['thumbnail']}
 												// src={
 												// 	result['volumeInfo']['imageLinks']['thumbnail'] === undefined ? (
 												// 		NoImage
