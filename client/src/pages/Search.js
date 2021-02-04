@@ -8,6 +8,7 @@ import API from '../utils/API';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_RESULTS } from '../utils/actions';
 import styles from '../utils/pageStyles';
+import NoImage from '../assets/noImageVector.jpg';
 
 const Search = (props) => {
 	const [ state, dispatch ] = useStoreContext();
@@ -75,12 +76,20 @@ const Search = (props) => {
 											<h6 style={styles.titleAndAuthor}>
 												Author: {result['volumeInfo']['authors']}
 											</h6>
-											{/* <img
+											<img
 												className="pic"
+												// src={NoImage}
 												src={result['volumeInfo']['imageLinks']['thumbnail']}
+												// src={
+												// 	result['volumeInfo']['imageLinks']['thumbnail'] === undefined ? (
+												// 		NoImage
+												// 	) : (
+												// 		result['volumeInfo']['imageLinks']['thumbnail']
+												// 	)
+												// }
 												alt="Book Thumbnail"
 												style={styles.img}
-											/> */}
+											/>
 											<p style={styles.p}>{result['volumeInfo']['description']}</p>
 										</li>
 									</div>
