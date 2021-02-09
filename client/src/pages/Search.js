@@ -6,7 +6,9 @@ import API from '../utils/API';
 import NoImage from '../assets/noImageVector.jpg';
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import styles from '../utils/pageStyles';
+import Styles from '../utils/pageStyles';
+
+const { li, button, titleAndAuthor, img, p } = Styles;
 
 const Search = (props) => {
 	// const [ state, dispatch ] = useStoreContext();
@@ -62,19 +64,15 @@ const Search = (props) => {
 							{state.results ? (
 								state.results.map((result, index) => (
 									<div>
-										<li key={result.id} style={styles.li}>
-											<Button style={styles.button} href={result['volumeInfo']['previewLink']}>
+										<li key={result.id} style={li}>
+											<Button style={button} href={result['volumeInfo']['previewLink']}>
 												View
 											</Button>
-											<Button style={styles.button} onClick={saveBook}>
+											<Button style={button} onClick={saveBook}>
 												Save
 											</Button>
-											<h5 style={styles.titleAndAuthor}>
-												Title: {result['volumeInfo']['title']}
-											</h5>
-											<h6 style={styles.titleAndAuthor}>
-												Author: {result['volumeInfo']['authors']}
-											</h6>
+											<h5 style={titleAndAuthor}>Title: {result['volumeInfo']['title']}</h5>
+											<h6 style={titleAndAuthor}>Author: {result['volumeInfo']['authors']}</h6>
 											<img
 												className="pic"
 												// src={NoImage}
@@ -87,9 +85,9 @@ const Search = (props) => {
 												// 	)
 												// }
 												alt="Book Thumbnail"
-												style={styles.img}
+												style={img}
 											/>
-											<p style={styles.p}>{result['volumeInfo']['description']}</p>
+											<p style={p}>{result['volumeInfo']['description']}</p>
 										</li>
 									</div>
 								))
