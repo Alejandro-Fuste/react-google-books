@@ -15,22 +15,25 @@ const Search = (props) => {
 	const [ search, setSearch ] = useState('Harry Potter');
 	const [ results, setResults ] = useState([]);
 
-	useEffect(() => {
-		API.getBook(search)
-			.then((res) => {
-				// dispatch({
-				// 	type: ADD_RESULTS,
-				// 	result: res.data.items
-				// });
-				// console.log(`res.data.items:`);
-				// console.log(res.data.items);
-				// console.log(`Thumbnail Image: ${res['data']['items'][0]['volumeInfo']['imageLinks']['thumbnail']}`);
-				// console.log(`State: ${state}`);
-				console.log(res.data.items);
-				setResults(res.data.items);
-			})
-			.catch((err) => console.log(err));
-	}, []);
+	useEffect(
+		() => {
+			API.getBook(search)
+				.then((res) => {
+					// dispatch({
+					// 	type: ADD_RESULTS,
+					// 	result: res.data.items
+					// });
+					// console.log(`res.data.items:`);
+					// console.log(res.data.items);
+					// console.log(`Thumbnail Image: ${res['data']['items'][0]['volumeInfo']['imageLinks']['thumbnail']}`);
+					// console.log(`State: ${state}`);
+					console.log(res.data.items);
+					setResults(res.data.items);
+				})
+				.catch((err) => console.log(err));
+		},
+		[ search ]
+	);
 
 	const saveBook = (e) => {
 		e.preventDefault();
