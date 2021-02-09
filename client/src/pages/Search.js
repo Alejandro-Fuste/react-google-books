@@ -44,6 +44,10 @@ const Search = (props) => {
 		setSearch(e.target.value);
 	};
 
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+	};
+
 	const saveBook = (e) => {
 		e.preventDefault();
 		API.saveBook({
