@@ -65,7 +65,11 @@ const Search = (props) => {
 		<Container fluid>
 			<Row>
 				<Col>
-					<SearchForm results={search} handleInputChange={handleInputChange} />
+					<SearchForm
+						results={search}
+						handleInputChange={handleInputChange}
+						handleFormSubmit={handleFormSubmit}
+					/>
 				</Col>
 			</Row>
 
