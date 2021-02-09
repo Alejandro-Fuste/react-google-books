@@ -15,10 +15,10 @@ const Search = (props) => {
 	useEffect(() => {
 		API.getBook({ query: state.initialSearchTerm })
 			.then((res) => {
-				dispatch({
-					type: ADD_RESULTS,
-					result: res.data.items
-				});
+				// dispatch({
+				// 	type: ADD_RESULTS,
+				// 	result: res.data.items
+				// });
 				// console.log(`res.data.items:`);
 				// console.log(res.data.items);
 				// console.log(`Thumbnail Image: ${res['data']['items'][0]['volumeInfo']['imageLinks']['thumbnail']}`);
