@@ -35,6 +35,12 @@ const Search = (props) => {
 		[ search ]
 	);
 
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		setSearch(e.target.value);
+	};
+
 	const saveBook = (e) => {
 		e.preventDefault();
 		API.saveBook({
@@ -54,7 +60,7 @@ const Search = (props) => {
 		<Container fluid>
 			<Row>
 				<Col>
-					<SearchForm />
+					<SearchForm results={search} handleSubmit={handleSubmit} />
 				</Col>
 			</Row>
 

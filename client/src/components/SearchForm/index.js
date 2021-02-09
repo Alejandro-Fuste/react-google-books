@@ -13,25 +13,25 @@ const SearchForm = ({ search, handleSubmit }) => {
 
 	// const [ state, dispatch ] = useStoreContext();
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
 
-		API.getBook({
-			query: searchRef.current.value
-		})
-			.then((res) => {
-				console.log(`CL for res from SearchForm:`);
-				console.log(res);
-				// dispatch({
-				// 	type: ADD_RESULTS,
-				// 	result: res.data.items
-				// });
-			})
-			.catch((err) => console.log(err));
-		console.log(searchRef.current.value);
-		// console.log(state.results);
-		searchRef.current.value = '';
-	};
+	// 	API.getBook({
+	// 		query: searchRef.current.value
+	// 	})
+	// 		.then((res) => {
+	// 			console.log(`CL for res from SearchForm:`);
+	// 			console.log(res);
+	// 			// dispatch({
+	// 			// 	type: ADD_RESULTS,
+	// 			// 	result: res.data.items
+	// 			// });
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// 	console.log(searchRef.current.value);
+	// 	// console.log(state.results);
+	// 	searchRef.current.value = '';
+	// };
 
 	return (
 		<Container fluid>
