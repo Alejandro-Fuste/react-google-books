@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useStoreContext } from '../utils/GlobalState';
-import { ADD_RESULTS } from '../utils/actions';
+// import { useStoreContext } from '../utils/GlobalState';
+// import { ADD_RESULTS } from '../utils/actions';
 import SearchForm from '../components/SearchForm';
 import API from '../utils/API';
 import NoImage from '../assets/noImageVector.jpg';
