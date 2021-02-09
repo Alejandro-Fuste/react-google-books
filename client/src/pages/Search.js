@@ -5,6 +5,8 @@ import SearchForm from '../components/SearchForm';
 import API from '../utils/API';
 import NoImage from '../assets/noImageVector.jpg';
 
+import _ from 'lodash';
+
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Styles from '../utils/pageStyles';
 
