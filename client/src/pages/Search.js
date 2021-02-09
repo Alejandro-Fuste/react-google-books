@@ -27,6 +27,7 @@ const Search = (props) => {
 					// console.log(res.data.items);
 					// console.log(`Thumbnail Image: ${res['data']['items'][0]['volumeInfo']['imageLinks']['thumbnail']}`);
 					// console.log(`State: ${state}`);
+					console.log(search);
 					console.log(res.data.items);
 					setResults(res.data.items);
 				})
@@ -35,9 +36,9 @@ const Search = (props) => {
 		[ search ]
 	);
 
-	const handleSubmit = (e) => {
+	const handleInputChange = (e) => {
 		e.preventDefault();
-
+		console.log(e.target.value);
 		setSearch(e.target.value);
 	};
 
@@ -60,7 +61,7 @@ const Search = (props) => {
 		<Container fluid>
 			<Row>
 				<Col>
-					<SearchForm results={search} handleSubmit={handleSubmit} />
+					<SearchForm results={search} handleInputChange={handleInputChange} />
 				</Col>
 			</Row>
 

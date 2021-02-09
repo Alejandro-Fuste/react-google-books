@@ -8,7 +8,7 @@ import { Form, FormControl, Button, InputGroup, Container, Row, Col } from 'reac
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const SearchForm = ({ search, handleSubmit }) => {
+const SearchForm = ({ search, handleInputChange }) => {
 	// const searchRef = useRef();
 
 	// const [ state, dispatch ] = useStoreContext();
@@ -37,7 +37,7 @@ const SearchForm = ({ search, handleSubmit }) => {
 		<Container fluid>
 			<Row>
 				<Col className="searchCol">
-					<Form onSubmit={handleSubmit}>
+					<Form>
 						<InputGroup className="mb-3">
 							<FormControl
 								placeholder="Enter Book Title"
@@ -46,6 +46,7 @@ const SearchForm = ({ search, handleSubmit }) => {
 								type="text"
 								// ref={searchRef}
 								value={search}
+								onChange={handleInputChange}
 							/>
 							<InputGroup.Append>
 								<Button
