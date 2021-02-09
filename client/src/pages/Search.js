@@ -39,8 +39,6 @@ const Search = (props) => {
 	);
 
 	const handleInputChange = (e) => {
-		e.preventDefault();
-		console.log(e.target.value);
 		setSearch(e.target.value);
 	};
 
