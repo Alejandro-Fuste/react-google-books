@@ -1,7 +1,4 @@
-import React, { useRef } from 'react';
-import API from '../../utils/API';
-// import { useStoreContext } from '../../utils/GlobalState';
-// import { ADD_RESULTS } from '../../utils/actions';
+import React from 'react';
 
 import './style.css';
 import { Form, FormControl, Button, InputGroup, Container, Row, Col } from 'react-bootstrap';
