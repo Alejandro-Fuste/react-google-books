@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export default {
 	// Gets a book from the Google Books API
-	getBook: function({ query }) {
-		return axios.get(`/api/book/?query=${query}`);
+	getBook: function(search) {
+		return axios.get(`/api/book/?query=${search}`);
 	},
 	// Saves a book to the database
 	saveBook: function(postData) {
