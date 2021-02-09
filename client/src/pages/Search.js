@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStoreContext } from '../utils/GlobalState';
 import { ADD_RESULTS } from '../utils/actions';
 import SearchForm from '../components/SearchForm';
@@ -9,7 +9,8 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import styles from '../utils/pageStyles';
 
 const Search = (props) => {
-	const [ state, dispatch ] = useStoreContext();
+	// const [ state, dispatch ] = useStoreContext();
+	const [ search, setSearch ] = useState('');
 
 	useEffect(() => {
 		API.getBook({ query: state.initialSearchTerm })
