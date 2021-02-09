@@ -15,7 +15,7 @@ const Search = (props) => {
 	const [ search, setSearch ] = useState('Harry Potter');
 
 	useEffect(() => {
-		API.getBook({ query: state.initialSearchTerm })
+		API.getBook(search)
 			.then((res) => {
 				// dispatch({
 				// 	type: ADD_RESULTS,
