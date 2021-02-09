@@ -12,9 +12,10 @@ const { li, button, titleAndAuthor, img, p } = Styles;
 
 const Search = (props) => {
 	const [ search, setSearch ] = useState('Harry Potter');
+
 	const [ results, setResults ] = useState([]);
 
-	const delayedSearch = useRef(_.debounce((q) => sendQuery(q), 500)).current;
+	const delayedSearch = useCallback(_.debounce((q) => se(q), 500), [ search ]);
 
 	useEffect(
 		() => {
