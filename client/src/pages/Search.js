@@ -26,8 +26,8 @@ const Search = (props) => {
 				// console.log(res.data.items);
 				// console.log(`Thumbnail Image: ${res['data']['items'][0]['volumeInfo']['imageLinks']['thumbnail']}`);
 				// console.log(`State: ${state}`);
-				console.log('key');
-				console.log(res.data);
+				console.log(res.data.items);
+				setResults(res.data.items);
 			})
 			.catch((err) => console.log(err));
 	}, []);
@@ -62,8 +62,8 @@ const Search = (props) => {
 					</div>
 					<ul className="singleResult">
 						<React.Fragment>
-							{state.results ? (
-								state.results.map((result, index) => (
+							{results ? (
+								results.map((result, index) => (
 									<div>
 										<li key={result.id} style={li}>
 											<Button style={button} href={result['volumeInfo']['previewLink']}>
