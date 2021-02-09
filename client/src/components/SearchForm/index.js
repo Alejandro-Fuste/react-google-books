@@ -1,17 +1,17 @@
 import React, { useRef } from 'react';
 import API from '../../utils/API';
-import { useStoreContext } from '../../utils/GlobalState';
-import { ADD_RESULTS } from '../../utils/actions';
+// import { useStoreContext } from '../../utils/GlobalState';
+// import { ADD_RESULTS } from '../../utils/actions';
 
 import './style.css';
 import { Form, FormControl, Button, InputGroup, Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const SearchForm = () => {
-	const searchRef = useRef();
+const SearchForm = ({ search, handleSubmit }) => {
+	// const searchRef = useRef();
 
-	const [ state, dispatch ] = useStoreContext();
+	// const [ state, dispatch ] = useStoreContext();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -22,10 +22,10 @@ const SearchForm = () => {
 			.then((res) => {
 				console.log(`CL for res from SearchForm:`);
 				console.log(res);
-				dispatch({
-					type: ADD_RESULTS,
-					result: res.data.items
-				});
+				// dispatch({
+				// 	type: ADD_RESULTS,
+				// 	result: res.data.items
+				// });
 			})
 			.catch((err) => console.log(err));
 		console.log(searchRef.current.value);
@@ -44,7 +44,8 @@ const SearchForm = () => {
 								aria-label="BookTitle"
 								aria-describedby="basic-addon2"
 								type="text"
-								ref={searchRef}
+								// ref={searchRef}
+								value={search}
 							/>
 							<InputGroup.Append>
 								<Button
