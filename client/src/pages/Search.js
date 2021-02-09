@@ -12,7 +12,7 @@ const { li, button, titleAndAuthor, img, p } = Styles;
 
 const Search = (props) => {
 	// const [ state, dispatch ] = useStoreContext();
-	const [ search, setSearch ] = useState('');
+	const [ search, setSearch ] = useState('Harry Potter');
 
 	useEffect(() => {
 		API.getBook({ query: state.initialSearchTerm })
