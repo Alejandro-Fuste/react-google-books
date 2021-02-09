@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-// import { useStoreContext } from '../utils/GlobalState';
-// import { ADD_RESULTS } from '../utils/actions';
 import SearchForm from '../components/SearchForm';
 import API from '../utils/API';
 import NoImage from '../assets/noImageVector.jpg';
@@ -13,7 +11,6 @@ import Styles from '../utils/pageStyles';
 const { li, button, titleAndAuthor, img, p } = Styles;
 
 const Search = (props) => {
-	// const [ state, dispatch ] = useStoreContext();
 	const [ search, setSearch ] = useState('Harry Potter');
 	const [ results, setResults ] = useState([]);
 
@@ -21,14 +18,6 @@ const Search = (props) => {
 		() => {
 			API.getBook(search)
 				.then((res) => {
-					// dispatch({
-					// 	type: ADD_RESULTS,
-					// 	result: res.data.items
-					// });
-					// console.log(`res.data.items:`);
-					// console.log(res.data.items);
-					// console.log(`Thumbnail Image: ${res['data']['items'][0]['volumeInfo']['imageLinks']['thumbnail']}`);
-					// console.log(`State: ${state}`);
 					console.log(search);
 					console.log(res.data.items);
 					setResults(res.data.items);
