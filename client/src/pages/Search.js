@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 // import { useStoreContext } from '../utils/GlobalState';
 // import { ADD_RESULTS } from '../utils/actions';
 import SearchForm from '../components/SearchForm';
@@ -87,9 +87,9 @@ const Search = (props) => {
 											<img
 												className="pic"
 												// src={NoImage}
-												// src={result['volumeInfo']['imageLinks']['thumbnail']}
+												src={result['volumeInfo']['imageLinks']['thumbnail']}
 												// src={
-												// 	result['volumeInfo']['imageLinks']['thumbnail'] === undefined ? (
+												// 	result['volumeInfo']['imageLinks']['thumbnail'] == undefined ? (
 												// 		NoImage
 												// 	) : (
 												// 		result['volumeInfo']['imageLinks']['thumbnail']
