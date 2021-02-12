@@ -26,7 +26,7 @@ const Search = (props) => {
 			if (!search) return;
 
 			if (debouncedSearchTerm) {
-				API.getBook(debouncedSearch)
+				API.getBook(search)
 					.then((res) => {
 						console.log(debouncedSearch);
 						console.log(res.data.items);
