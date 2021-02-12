@@ -35,7 +35,7 @@ const Search = (props) => {
 					.catch((err) => console.log(err));
 			}
 		},
-		[ debouncedSearch ]
+		[ debouncedSearchTerm ]
 	);
 
 	const handleInputChange = (e) => {
