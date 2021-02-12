@@ -16,6 +16,8 @@ const Search = (props) => {
 	// const [ debouncedSearch, setDebouncedSearch ] = useState('Harry Potter');
 	const [ results, setResults ] = useState([]);
 
+	const debouncedSearchTerm = useDebounce(search, 500);
+
 	// const delayedSearch = useCallback(_.debounce((q) => setDebouncedSearch(q), 500), [ search ]);
 	// const delayedSearch = debounce((q) => setDebouncedSearch(q), 500);
 
