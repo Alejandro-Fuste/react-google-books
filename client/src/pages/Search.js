@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
+
 import SearchForm from '../components/SearchForm';
 import API from '../utils/API';
 import useDebounce from '../utils/debounceHook';
 import NoImage from '../assets/noImageVector.jpg';
-
-// import { debounce } from 'lodash';
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Styles from '../utils/pageStyles';
@@ -13,13 +12,9 @@ const { li, button, titleAndAuthor, img, p } = Styles;
 
 const Search = (props) => {
 	const [ search, setSearch ] = useState('Harry Potter');
-	// const [ debouncedSearch, setDebouncedSearch ] = useState('Harry Potter');
 	const [ results, setResults ] = useState([]);
 
 	const debouncedSearchTerm = useDebounce(search, 500);
-
-	// const delayedSearch = useCallback(_.debounce((q) => setDebouncedSearch(q), 500), [ search ]);
-	// const delayedSearch = debounce((q) => setDebouncedSearch(q), 500);
 
 	useEffect(
 		() => {
@@ -40,7 +35,6 @@ const Search = (props) => {
 
 	const handleInputChange = (e) => {
 		setSearch(e.target.value);
-		// delayedSearch(e.target.value);
 	};
 
 	const handleFormSubmit = (e) => {
