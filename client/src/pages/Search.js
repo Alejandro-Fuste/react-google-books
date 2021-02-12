@@ -24,7 +24,8 @@ const Search = (props) => {
 				API.getBook(search)
 					.then((res) => {
 						console.log(search);
-						console.log(res.data.items);
+						const { items } = res.data;
+						console.log(items);
 						setResults(res.data.items);
 					})
 					.catch((err) => console.log(err));
@@ -89,15 +90,13 @@ const Search = (props) => {
 											<h6 style={titleAndAuthor}>Author: {result['volumeInfo']['authors']}</h6>
 											<img
 												className="pic"
-												// src={NoImage}
-												src={result['volumeInfo']['imageLinks']['thumbnail']}
-												// src={
-												// 	result['volumeInfo']['imageLinks']['thumbnail'] == undefined ? (
-												// 		NoImage
-												// 	) : (
-												// 		result['volumeInfo']['imageLinks']['thumbnail']
-												// 	)
-												// }
+												src={
+													result.volumeInfo.imageLinks.thumbnail ? (
+														result.volumeInfo.imageLinks.thumbnail
+													) : (
+														NoImage
+													)
+												}
 												alt="Book Thumbnail"
 												style={img}
 											/>
