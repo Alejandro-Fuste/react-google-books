@@ -23,6 +23,8 @@ const Search = (props) => {
 
 	useEffect(
 		() => {
+			if (!search) return;
+
 			API.getBook(debouncedSearch)
 				.then((res) => {
 					console.log(debouncedSearch);
