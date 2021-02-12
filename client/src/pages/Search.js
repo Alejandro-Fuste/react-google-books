@@ -3,7 +3,7 @@ import SearchForm from '../components/SearchForm';
 import API from '../utils/API';
 import NoImage from '../assets/noImageVector.jpg';
 
-import _ from 'lodash';
+import { debounce } from 'lodash';
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Styles from '../utils/pageStyles';
@@ -12,26 +12,28 @@ const { li, button, titleAndAuthor, img, p } = Styles;
 
 const Search = (props) => {
 	const [ search, setSearch ] = useState('Harry Potter');
-	const [ debouncedSearch, setdebouncedSearch ] = useState('Harry Potter');
+	// const [ debouncedSearch, setDebouncedSearch ] = useState('Harry Potter');
 	const [ results, setResults ] = useState([]);
 
-	const delayedSearch = useCallback(_.debounce((q) => se(q), 500), [ search ]);
+	// const delayedSearch = useCallback(_.debounce((q) => setDebouncedSearch(q), 500), [ search ]);
+	// const delayedSearch = debounce((q) => setDebouncedSearch(q), 500);
 
 	useEffect(
 		() => {
-			API.getBook(search)
+			API.getBook(debouncedSearch)
 				.then((res) => {
-					console.log(search);
+					console.log(debouncedSearch);
 					console.log(res.data.items);
 					setResults(res.data.items);
 				})
 				.catch((err) => console.log(err));
 		},
-		[ search ]
+		[ debouncedSearch ]
 	);
 
 	const handleInputChange = (e) => {
 		setSearch(e.target.value);
+		// delayedSearch(e.target.value);
 	};
 
 	const handleFormSubmit = (e) => {
