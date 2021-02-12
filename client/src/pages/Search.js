@@ -25,13 +25,15 @@ const Search = (props) => {
 		() => {
 			if (!search) return;
 
-			API.getBook(debouncedSearch)
-				.then((res) => {
-					console.log(debouncedSearch);
-					console.log(res.data.items);
-					setResults(res.data.items);
-				})
-				.catch((err) => console.log(err));
+			if (debouncedSearchTerm) {
+				API.getBook(debouncedSearch)
+					.then((res) => {
+						console.log(debouncedSearch);
+						console.log(res.data.items);
+						setResults(res.data.items);
+					})
+					.catch((err) => console.log(err));
+			}
 		},
 		[ debouncedSearch ]
 	);
