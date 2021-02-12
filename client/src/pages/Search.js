@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import SearchForm from '../components/SearchForm';
 import API from '../utils/API';
+import useDebounce from '../utils/debounceHook';
 import NoImage from '../assets/noImageVector.jpg';
 
-import { debounce } from 'lodash';
+// import { debounce } from 'lodash';
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Styles from '../utils/pageStyles';
