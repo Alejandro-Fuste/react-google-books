@@ -25,7 +25,7 @@ const Search = (props) => {
 					.then((res) => {
 						console.log(search);
 						const { items } = res.data;
-						console.log(items);
+						let bookData = {};
 						setResults(res.data.items);
 					})
 					.catch((err) => console.log(err));
