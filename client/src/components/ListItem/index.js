@@ -1,5 +1,7 @@
 import React from 'react';
 
+const { li, button, titleAndAuthor, img, p } = Styles;
+
 const ListItem = (params) => {
 	return (
 		<React.Fragment>
