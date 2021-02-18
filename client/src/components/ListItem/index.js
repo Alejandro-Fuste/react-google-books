@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Button } from 'react-bootstrap';
 import Styles from '../../utils/pageStyles';
 
 const { li, button, titleAndAuthor, img, p } = Styles;
