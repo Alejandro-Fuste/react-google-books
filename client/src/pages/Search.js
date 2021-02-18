@@ -30,10 +30,14 @@ const Search = (props) => {
 							authors: book.volumeInfo.authors || [ 'No author to display' ],
 							title: book.volumeInfo.title,
 							description: book.volumeInfo.description || 'No description to display',
-							image: book.volumeInfo.imageLinks.thumbnail || '',
+							image:
+								book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail
+									? book.volumeInfo.imageLinks.thumbnail
+									: '',
 							previewLink: book.volumeInfo.previewLink
 						}));
 						setResults(bookData);
+						console.log(results);
 					})
 					.catch((err) => console.log(err));
 			}

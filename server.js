@@ -8,7 +8,7 @@ const logger = require('morgan');
 require('dotenv').config();
 
 //Setting up port
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3001;
 
 // Set models folder to db variable
 const db = require('./models');
