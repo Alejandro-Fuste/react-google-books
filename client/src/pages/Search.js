@@ -25,8 +25,15 @@ const Search = (props) => {
 					.then((res) => {
 						console.log(search);
 						const { items } = res.data;
-						let bookData = {};
-						setResults(res.data.items);
+						let bookData = items.map((book) => ({
+							bookId: book.id,
+							authors: book.volumeInfo.authors || [ 'No author to display' ],
+							title: book.volumeInfo.title,
+							description: book.volumeInfo.description || 'No description to display',
+							image: book.volumeInfo.imageLinks.thumbnail || '',
+							previewLink: book.volumeInfo.previewLink
+						}));
+						setResults(bookData);
 					})
 					.catch((err) => console.log(err));
 			}
@@ -79,28 +86,22 @@ const Search = (props) => {
 							{results ? (
 								results.map((result, index) => (
 									<div>
-										<li key={result.id} style={li}>
-											<Button style={button} href={result['volumeInfo']['previewLink']}>
+										<li key={result.bookId} style={li}>
+											<Button style={button} href={result['previewLink']}>
 												View
 											</Button>
 											<Button style={button} onClick={saveBook}>
 												Save
 											</Button>
-											<h5 style={titleAndAuthor}>Title: {result['volumeInfo']['title']}</h5>
-											<h6 style={titleAndAuthor}>Author: {result['volumeInfo']['authors']}</h6>
+											<h5 style={titleAndAuthor}>Title: {result['title']}</h5>
+											<h6 style={titleAndAuthor}>Author: {result['authors']}</h6>
 											<img
 												className="pic"
-												src={
-													result.volumeInfo.imageLinks.thumbnail ? (
-														result.volumeInfo.imageLinks.thumbnail
-													) : (
-														NoImage
-													)
-												}
+												src={result.image ? result.image : NoImage}
 												alt="Book Thumbnail"
 												style={img}
 											/>
-											<p style={p}>{result['volumeInfo']['description']}</p>
+											<p style={p}>{result['description']}</p>
 										</li>
 									</div>
 								))
