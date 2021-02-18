@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Styles from '../../utils/pageStyles';
+
 const { li, button, titleAndAuthor, img, p } = Styles;
 
 const ListItem = (params) => {
