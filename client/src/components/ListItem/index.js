@@ -5,7 +5,7 @@ import Styles from '../../utils/pageStyles';
 
 const { li, button, titleAndAuthor, img, p } = Styles;
 
-const ListItem = (params) => {
+const ListItem = ({ results }) => {
 	return (
 		<React.Fragment>
 			{results ? (
