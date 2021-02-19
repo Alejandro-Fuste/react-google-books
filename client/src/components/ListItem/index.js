@@ -1,5 +1,5 @@
 import React from 'react';
-import NoImage from '../assets/noImageVector.jpg';
+import NoImage from '../../assets/noImageVector.jpg';
 
 import { Button } from 'react-bootstrap';
 import Styles from '../../utils/pageStyles';
