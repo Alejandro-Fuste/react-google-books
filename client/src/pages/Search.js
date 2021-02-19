@@ -8,8 +8,6 @@ import useDebounce from '../utils/debounceHook';
 import { Container, Row, Col } from 'react-bootstrap';
 import Styles from '../utils/pageStyles';
 
-const { li, button, titleAndAuthor, img, p } = Styles;
-
 const Search = (props) => {
 	const [ search, setSearch ] = useState('Harry Potter');
 	const [ results, setResults ] = useState([]);
