@@ -90,25 +90,7 @@ const Search = (props) => {
 						<React.Fragment>
 							{results ? (
 								results.map((result) => (
-									<div>
-										<li key={result.bookId} style={li}>
-											<Button style={button} href={result['previewLink']}>
-												View
-											</Button>
-											<Button style={button} onClick={saveBook}>
-												Save
-											</Button>
-											<h5 style={titleAndAuthor}>Title: {result['title']}</h5>
-											<h6 style={titleAndAuthor}>Author: {result['authors']}</h6>
-											<img
-												className="pic"
-												src={result.image ? result.image : NoImage}
-												alt="Book Thumbnail"
-												style={img}
-											/>
-											<p style={p}>{result['description']}</p>
-										</li>
-									</div>
+									<ListItem key={result.bookId} result={result} saveBook={saveBook} />
 								))
 							) : (
 								<h3>No Results</h3>
