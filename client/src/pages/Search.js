@@ -88,7 +88,7 @@ const Search = (props) => {
 					<ul className="singleResult">
 						<React.Fragment>
 							{results ? (
-								results.map((result, index) => (
+								results.map((result) => (
 									<div>
 										<li key={result.bookId} style={li}>
 											<Button style={button} href={result['previewLink']}>
