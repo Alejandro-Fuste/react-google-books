@@ -18,13 +18,13 @@ const reducer = (state, action) => {
 				saved: action.getSaved
 			};
 
-		// case DELETE_SAVED:
-		// 	return {
-		// 		...state,
-		// 		saved: state.saved.filter((save) => {
-		// 			return save._id !== action._id;
-		// 		})
-		// 	};
+		case DELETE_SAVED:
+			return {
+				...state,
+				saved: state.saved.filter((save) => {
+					return save._id !== action._id;
+				})
+			};
 
 		case VIEW_BOOK:
 			return {
