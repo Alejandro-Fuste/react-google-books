@@ -10,7 +10,7 @@ const ListItem = ({ result, saveBook }) => {
 	return (
 		<React.Fragment>
 			<div>
-				<li key={result.bookId} style={li}>
+				<li style={li}>
 					<Button style={button} href={result['previewLink']}>
 						View
 					</Button>
