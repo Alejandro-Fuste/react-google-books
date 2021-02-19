@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import SearchForm from '../components/SearchForm';
+import ListItem from '../components/ListItem';
 import API from '../utils/API';
 import useDebounce from '../utils/debounceHook';
 import NoImage from '../assets/noImageVector.jpg';
