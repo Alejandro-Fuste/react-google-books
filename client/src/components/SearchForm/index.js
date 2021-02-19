@@ -17,7 +17,6 @@ const SearchForm = ({ search, handleInputChange, handleFormSubmit }) => {
 								aria-label="BookTitle"
 								aria-describedby="basic-addon2"
 								type="text"
-								// ref={searchRef}
 								value={search}
 								onChange={handleInputChange}
 							/>
