@@ -4,7 +4,6 @@ import SearchForm from '../components/SearchForm';
 import ListItem from '../components/ListItem';
 import API from '../utils/API';
 import useDebounce from '../utils/debounceHook';
-import NoImage from '../assets/noImageVector.jpg';
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Styles from '../utils/pageStyles';
