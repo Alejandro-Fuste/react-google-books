@@ -6,7 +6,6 @@ import API from '../utils/API';
 import useDebounce from '../utils/debounceHook';
 
 import { Container, Row, Col } from 'react-bootstrap';
-import Styles from '../utils/pageStyles';
 
 const Search = (props) => {
 	const [ search, setSearch ] = useState('Harry Potter');
