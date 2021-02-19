@@ -6,7 +6,7 @@ import Styles from '../../utils/pageStyles';
 
 const { li, button, titleAndAuthor, img, p } = Styles;
 
-const ListItem = ({ result }) => {
+const ListItem = ({ result, saveBook }) => {
 	return (
 		<React.Fragment>
 			<div>
