@@ -5,7 +5,7 @@ import ListItem from '../components/ListItem';
 import API from '../utils/API';
 import useDebounce from '../utils/debounceHook';
 
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Styles from '../utils/pageStyles';
 
 const { li, button, titleAndAuthor, img, p } = Styles;
