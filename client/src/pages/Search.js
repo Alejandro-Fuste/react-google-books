@@ -20,7 +20,6 @@ const Search = (props) => {
 			if (debouncedSearchTerm) {
 				API.getBook(search)
 					.then((res) => {
-						console.log(search);
 						const { items } = res.data;
 						let bookData = items.map((book) => ({
 							bookId: book.id,
@@ -34,7 +33,6 @@ const Search = (props) => {
 							previewLink: book.volumeInfo.previewLink
 						}));
 						setResults(bookData);
-						console.log(results);
 					})
 					.catch((err) => console.log(err));
 			}
