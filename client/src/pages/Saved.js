@@ -3,7 +3,7 @@ import { useStoreContext } from '../utils/GlobalState';
 import { GET_SAVED } from '../utils/actions';
 import API from '../utils/API';
 
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import ListItem2 from '../components/ListItem2';
 
 const Saved = () => {
