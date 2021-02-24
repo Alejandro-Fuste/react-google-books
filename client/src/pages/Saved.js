@@ -4,7 +4,6 @@ import { GET_SAVED } from '../utils/actions';
 import API from '../utils/API';
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import styles from '../utils/pageStyles';
 import ListItem2 from '../components/ListItem2';
 
 const Saved = () => {
