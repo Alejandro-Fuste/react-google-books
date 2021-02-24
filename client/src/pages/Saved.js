@@ -5,7 +5,7 @@ import API from '../utils/API';
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import styles from '../utils/pageStyles';
-import ListItem from '../components/ListItem';
+import ListItem2 from '../components/ListItem2';
 
 const Saved = () => {
 	const [ state, dispatch ] = useStoreContext();
@@ -41,7 +41,7 @@ const Saved = () => {
 						<React.Fragment>
 							{state.saved ? (
 								state.saved.map((result) => (
-									<ListItem
+									<ListItem2
 										key={result._id}
 										result={result}
 										deleteBook={() => deleteBook(result._id)}
