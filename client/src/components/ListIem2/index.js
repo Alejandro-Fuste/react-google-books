@@ -6,7 +6,7 @@ import Styles from '../../utils/pageStyles';
 
 const { li, button, titleAndAuthor, img, p } = Styles;
 
-const ListItem = ({ result, deleteBook }) => {
+const ListItem2 = ({ result, deleteBook }) => {
 	return (
 		<React.Fragment>
 			<div>
@@ -27,4 +27,4 @@ const ListItem = ({ result, deleteBook }) => {
 	);
 };
 
-export default ListItem;
+export default ListItem2;
