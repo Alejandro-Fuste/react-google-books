@@ -46,25 +46,6 @@ const Saved = () => {
 										result={result}
 										deleteBook={() => deleteBook(result._id)}
 									/>
-									// <div>
-									// 	<li key={index} style={styles.li}>
-									// 		<Button style={styles.button} href={result['previewLink']}>
-									// 			View
-									// 		</Button>
-									// 		<Button style={styles.button} onClick={''} key={index}>
-									// 			Delete
-									// 		</Button>
-									// 		<h5 style={styles.titleAndAuthor}>Title: {result.title}</h5>
-									// 		<h6 style={styles.titleAndAuthor}>Author: {result['authors']}</h6>
-									// 		<img
-									// 			className="pic"
-									// 			src={result['image']}
-									// 			alt="Book Thumbnail"
-									// 			style={styles.img}
-									// 		/>
-									// 		<p style={styles.p}>{result['description']}</p>
-									// 	</li>
-									// </div>
 								))
 							) : (
 								<h3>No Results</h3>
