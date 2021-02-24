@@ -14,7 +14,7 @@ export default {
 		return axios.get('/api/books');
 	},
 	// Deletes the post with the given id
-	deletePost: function(id) {
+	deleteBook: function(id) {
 		return axios.delete('/api/books/' + id);
 	}
 };
