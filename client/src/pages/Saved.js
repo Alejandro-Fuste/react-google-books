@@ -25,6 +25,10 @@ const Saved = () => {
 			.catch((err) => console.log(err));
 	}, []);
 
+	const deleteBook = (bookId) => {
+		console.log('Delete button clicked');
+	};
+
 	return (
 		<Container fluid>
 			<Row>
