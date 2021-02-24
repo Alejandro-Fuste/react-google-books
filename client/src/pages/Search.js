@@ -49,17 +49,20 @@ const Search = (props) => {
 	};
 
 	const saveBook = (bookId) => {
-		API.saveBook({
-			title: '',
-			authors: [ [ 'volumeInfo' ]['authors'] ],
-			image: '',
-			link: '',
-			description: ''
-		})
-			.then((result) => {
-				// get result and save it to a saved books state
-			})
-			.catch((err) => console.log(err));
+		const bookToSave = results.find((book) => book.bookId === bookId);
+		console.log(bookToSave);
+
+		// API.saveBook({
+		// 	title: '',
+		// 	authors: [ [ 'volumeInfo' ]['authors'] ],
+		// 	image: '',
+		// 	link: '',
+		// 	description: ''
+		// })
+		// 	.then((result) => {
+		// 		// get result and save it to a saved books state
+		// 	})
+		// 	.catch((err) => console.log(err));
 	};
 
 	return (
