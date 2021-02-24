@@ -48,8 +48,7 @@ const Search = (props) => {
 		e.preventDefault();
 	};
 
-	const saveBook = (e) => {
-		e.preventDefault();
+	const saveBook = (bookId) => {
 		API.saveBook({
 			title: '',
 			authors: [ [ 'volumeInfo' ]['authors'] ],
