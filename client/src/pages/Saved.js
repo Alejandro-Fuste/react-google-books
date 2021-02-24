@@ -26,7 +26,7 @@ const Saved = () => {
 	}, []);
 
 	const deleteBook = (bookId) => {
-		console.log('Delete button clicked');
+		console.log(`Delete button clicked ${bookId}`);
 	};
 
 	return (
