@@ -84,7 +84,11 @@ const Search = (props) => {
 						<React.Fragment>
 							{results ? (
 								results.map((result) => (
-									<ListItem key={result.bookId} result={result} saveBook={saveBook} />
+									<ListItem
+										key={result.bookId}
+										result={result}
+										saveBook={() => saveBook(result.bookId)}
+									/>
 								))
 							) : (
 								<h3>No Results</h3>
