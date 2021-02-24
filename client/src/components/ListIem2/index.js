@@ -6,7 +6,7 @@ import Styles from '../../utils/pageStyles';
 
 const { li, button, titleAndAuthor, img, p } = Styles;
 
-const ListItem = ({ result, saveBook }) => {
+const ListItem = ({ result, deleteBook }) => {
 	return (
 		<React.Fragment>
 			<div>
@@ -14,8 +14,8 @@ const ListItem = ({ result, saveBook }) => {
 					<Button style={button} href={result['previewLink']}>
 						View
 					</Button>
-					<Button style={button} onClick={saveBook}>
-						Save
+					<Button style={button} onClick={deleteBook}>
+						Delete
 					</Button>
 					<h5 style={titleAndAuthor}>Title: {result['title']}</h5>
 					<h6 style={titleAndAuthor}>Author: {result['authors']}</h6>
