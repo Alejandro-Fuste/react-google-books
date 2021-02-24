@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useStoreContext } from '../utils/GlobalState';
-import { GET_SAVED } from '../utils/actions';
+import { GET_SAVED, DELETE_SAVED } from '../utils/actions';
 import API from '../utils/API';
 
 import { Container, Row, Col } from 'react-bootstrap';
@@ -25,7 +25,14 @@ const Saved = () => {
 	}, []);
 
 	const deleteBook = (bookId) => {
-		API.deleteBook(bookId).then((result) => console.log(result)).catch((err) => console.log(err));
+		API.deleteBook(bookId)
+			.then(() => {
+				dispatch({
+					type: DELETE_SAVED,
+					_id: bookId
+				});
+			})
+			.catch((err) => console.log(err));
 	};
 
 	return (
