@@ -13,7 +13,7 @@ export default {
 	getSavedBooks: function() {
 		return axios.get('/api/books');
 	},
-	// Deletes the post with the given id
+	// Deletes a saved book with the given id
 	deleteBook: function(id) {
 		return axios.delete('/api/books/' + id);
 	}
