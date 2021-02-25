@@ -36,14 +36,14 @@ require('./routes/api-routes.js')(app);
 
 // Send every request to the React app
 // Define any API routes before this runs
-// app.get('*', function(req, res) {
-// 	res.sendFile(path.join(__dirname, './client/build/index.html'));
-// });
+app.get('*', function(req, res) {
+	res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
 
 // Delete this after finishing development
-app.get('*', function(req, res) {
-	res.sendFile(path.join(__dirname, './client/public/index.html'));
-});
+// app.get('*', function(req, res) {
+// 	res.sendFile(path.join(__dirname, './client/public/index.html'));
+// });
 
 //Starting database with mongoose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
