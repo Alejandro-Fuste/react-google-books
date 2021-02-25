@@ -50,14 +50,8 @@ const Search = (props) => {
 
 	const saveBook = (bookId) => {
 		const bookToSave = results.find((book) => book.bookId === bookId);
-		// console.log(bookToSave);
 
-		API.saveBook(bookToSave)
-			.then((result) => {
-				// get result and save it to a saved books state
-				console.log(result);
-			})
-			.catch((err) => console.log(err));
+		API.saveBook(bookToSave).then(() => {}).catch((err) => console.log(err));
 	};
 
 	return (
