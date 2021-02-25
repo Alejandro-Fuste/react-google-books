@@ -16,10 +16,6 @@ const Saved = () => {
 					type: GET_SAVED,
 					getSaved: res.data
 				});
-				console.log(`res from getSavedBooks api:`);
-				console.log(res.data);
-				console.log(`saved books from global state:`);
-				console.log(state.saved);
 			})
 			.catch((err) => console.log(err));
 	}, []);
