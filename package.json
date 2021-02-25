@@ -1,5 +1,5 @@
 {
-  "name": "MERN Google Books",
+  "name": "mern-google-books",
   "version": "1.0.0",
   "description": "Mern Demo",
   "main": "server.js",
