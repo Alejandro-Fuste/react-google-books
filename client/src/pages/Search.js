@@ -7,7 +7,7 @@ import useDebounce from '../utils/debounceHook';
 
 import { Container, Row, Col } from 'react-bootstrap';
 
-const Search = (props) => {
+const Search = () => {
 	const [ search, setSearch ] = useState('Harry Potter');
 	const [ results, setResults ] = useState([]);
 
