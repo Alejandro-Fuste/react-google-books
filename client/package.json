@@ -2,7 +2,7 @@
   "name": "mern",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://mern--books.web.app/",
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
