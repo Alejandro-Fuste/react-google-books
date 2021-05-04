@@ -1,17 +1,17 @@
 // Requiring necessary npm packages
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
-const logger = require('morgan');
+const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
+const logger = require("morgan");
 
 // Requiring .dotenv file
-require('dotenv').config();
+require("dotenv").config();
 
 //Setting up port
 const PORT = process.env.PORT || 3001;
 
 // Set models folder to db variable
-const db = require('./models');
+const db = require("./config/connection");
 
 // Creating express app
 const app = express();
@@ -21,23 +21,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // Morgan middleware
-app.use(logger('dev'));
+app.use(logger("dev"));
 
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
 
 // API Routes
-require('./routes/api-routes.js')(app);
+require("./routes/api-routes.js")(app);
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get('*', function(req, res) {
-	res.sendFile(path.join(__dirname, './client/build/index.html'));
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 // Delete this after finishing development
@@ -46,11 +46,15 @@ app.get('*', function(req, res) {
 // });
 
 //Starting database with mongoose
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
-	useNewUrlParser: true,
-	useFindAndModify: false,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
+//   useNewUrlParser: true,
+//   useFindAndModify: false,
+//   useUnifiedTopology: true,
+// });
 
 //Start server to listen
-app.listen(PORT, () => console.log(`🌎 ==> API running on http://localhost:%s/`, PORT));
+db.once("open", () => {
+  app.listen(PORT, () =>
+    console.log(`🌎 ==> API running on http://localhost:%s/`, PORT)
+  );
+});
