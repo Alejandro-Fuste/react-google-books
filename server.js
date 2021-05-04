@@ -2,7 +2,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const logger = require("morgan");
 
 // Requiring .dotenv file
 require("dotenv").config();
@@ -22,9 +21,6 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
-
-// Morgan middleware
-app.use(logger("dev"));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
