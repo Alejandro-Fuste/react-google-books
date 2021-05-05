@@ -27,14 +27,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// API Routes
-require("./routes/api-routes.js")(app);
-
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+// API Routes
+require("./routes/api-routes.js")(app);
 
 // Delete this after finishing development
 // app.get('*', function(req, res) {
