@@ -41,13 +41,6 @@ app.get("*", function (req, res) {
 // 	res.sendFile(path.join(__dirname, './client/public/index.html'));
 // });
 
-//Starting database with mongoose
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
-//   useNewUrlParser: true,
-//   useFindAndModify: false,
-//   useUnifiedTopology: true,
-// });
-
 //Start server to listen
 db.once("open", () => {
   app.listen(PORT, () =>
