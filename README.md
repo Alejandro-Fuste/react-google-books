@@ -6,7 +6,7 @@
 
 ## Description
 
-This project is full-stack MERN application. The application is a React-based Google Books Search. Based on the search input, the user will be provide results from the Google Books API.
+This project is full-stack MERN application. The application is a React-based Google Books Search. Based on the search input, the user will be provide results from the Google Books API. You can see the deployed site by [clicking on this link!](https://af-react-google-books.herokuapp.com/search)
 
 ## User Story
 
